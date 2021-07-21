@@ -1,0 +1,167 @@
+$Cyan: hsl(179, 62%, 43%);
+$Light-Cyan: hsl(179, 39%, 55%);
+$Bright-Yellow: hsl(71, 73%, 54%);
+$Light-Gray: hsl(204, 43%, 93%);
+$Grayish-Blue: hsl(218, 22%, 67%);
+
+@mixin shadow {
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,0.12);
+    -moz-box-shadow: 0 0 15px 0 rgba(0,0,0,0.12);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $Light-Gray;
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+}
+
+// typography stuff
+
+h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.title-blue {
+    color: $Cyan;
+}
+
+.title-white {
+    color: $Light-Gray;
+}
+
+h3 {
+    font-size: 15px;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.subtitle-green {
+    color: $Bright-Yellow;
+}
+
+.subtitle-white {
+    color: white;
+}
+
+.price-big {
+    font-size: 30px;
+    color: white;
+    vertical-align: middle;
+}
+
+.price-sm {
+    vertical-align: middle;
+    color: white;
+    opacity: 0.6;
+}
+
+p {
+    font-size: 13px;
+    line-height: 2;
+    font-weight: 300;
+}
+
+.description-gray {
+    color: $Grayish-Blue;
+}
+
+.description-white {
+    color: white;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+// container stuff
+
+.container {
+    width: 95%;
+    padding: 30px 30px;
+    margin: 0 auto;
+}
+
+.main-container {
+    padding: 50px 0;
+    max-width: 370px;
+}
+
+.container-first {
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+    @include shadow();
+}
+
+.container-second {
+    background-color: $Cyan;
+    @include shadow();
+}
+
+.container-third {
+    background-color: $Light-Cyan;
+    border-radius: 0 0 5px 5px ;
+    @include shadow();
+}
+
+.btn {
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 10px;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    background-color: $Bright-Yellow;
+    @include shadow();
+}
+
+.btn:hover {
+    transform: scale(1.01, 1.01);
+    -webkit-transform: scale(1.01, 1.01);
+    -moz-transform: scale(1.01, 1.01);
+
+}
+
+@media (min-width: 768px) {
+    
+    body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .main-container {
+        max-width: 600px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "header header"
+        "item1 item2";
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .container-first {
+        grid-area: header;
+    }
+
+    .container-second {
+        border-radius: 0 0 0 5px;
+    }
+
+    .container-third {
+        border-radius: 0 0 5px 0;
+    }
+}
